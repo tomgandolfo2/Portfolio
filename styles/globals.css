@@ -4,8 +4,12 @@
 
 @layer components {
     .heroBtn {
-        @apply px-6 py-2 border border-[#242424] rounded-full 
-        uppercase text-xs tracking-widest text-gray-500 
-        transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40 cursor-pointer;
+        @apply cursor-pointer rounded-full border border-[#242424] px-6 
+        py-2 text-xs uppercase tracking-widest 
+        text-gray-500 transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
+    }
+
+    .pageTitle {
+        @apply absolute top-24 text-2xl uppercase tracking-[20px] text-gray-500;
     }
 }
