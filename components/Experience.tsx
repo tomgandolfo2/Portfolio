@@ -19,7 +19,10 @@ export default function Experience({}: Props) {
             className="relative mx-auto flex h-screen max-w-full flex-row items-center justify-evenly overflow-hidden px-10 text-left md:flex-row"
         >
             <h3 className="pageTitle">Experience</h3>
-            <div className="mt-16 flex w-full snap-x snap-mandatory space-x-5 overflow-x-scroll p-10">
+            <div
+                className="mt-16 flex w-full snap-x snap-mandatory space-x-5 overflow-x-scroll 
+            p-10 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80"
+            >
                 <ExperienceCard />
                 <ExperienceCard />
                 <ExperienceCard />

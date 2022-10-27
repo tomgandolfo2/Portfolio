@@ -22,12 +22,14 @@ export default function Projects({}: Props) {
             <h3 className="pageTitle">Projects</h3>
             <div
                 className="relative z-20 flex w-full snap-x snap-mandatory 
-            overflow-y-hidden overflow-x-scroll"
+            overflow-y-hidden overflow-x-scroll scrollbar-thin scrollbar-track-gray-400/20 
+            scrollbar-thumb-[#F7AB0A]/80"
             >
                 {projects.map((project, i) => (
                     <div
                         className="flex h-screen w-screen flex-shrink-0 snap-center flex-col items-center
                     justify-center space-y-5 p-20 md:p-44"
+                        key={i}
                     >
                         <motion.img
                             initial={{
