@@ -6,13 +6,13 @@ export default {
         {
             name: "title",
             title: "Title",
-            description: "Social media url",
             type: "string",
         },
         {
             name: "url",
             title: "Url",
             type: "url",
+            description: "Social media url",
         },
     ],
 }
