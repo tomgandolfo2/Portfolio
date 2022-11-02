@@ -31,7 +31,7 @@ const Home = ({pageInfo, experiences, skills, projects, socials}: Props) => {
          bg-[rgb(36,36,36)] text-white scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80"
         >
             <Head>
-                <title>Tom's Portfolio</title>
+                <title>{pageInfo?.name} - Portfolio</title>
             </Head>
             {/* Header */}
             <Header socials={socials} />

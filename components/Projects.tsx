@@ -28,11 +28,11 @@ export default function Projects({projects}: Props) {
             overflow-y-hidden overflow-x-scroll scrollbar-thin scrollbar-track-gray-400/20 
             scrollbar-thumb-[#F7AB0A]/80"
             >
-                {projects.map((project, i) => (
+                {projects?.map((project) => (
                     <div
                         className="flex h-screen w-screen flex-shrink-0 snap-center flex-col items-center
                     justify-center space-y-5 p-20 md:p-44"
-                        key={i}
+                        key={project._id}
                     >
                         <motion.img
                             initial={{
@@ -74,9 +74,6 @@ export default function Projects({projects}: Props) {
                         </div>
                     </div>
                 ))}
-                {/* Project */}
-                {/* Project */}
-                {/* Project */}
             </div>
             <div className="absolute top-[30%] left-0 h-[500px] w-full -skew-y-12 bg-[#F7AB0A]/10" />
         </motion.div>
