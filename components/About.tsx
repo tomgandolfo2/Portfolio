@@ -1,10 +1,14 @@
 import React from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { urlFor } from "../sanity"
+import { PageInfo } from "../typings"
 
-type Props = {}
+type Props = {
+    pageInfo: PageInfo
+}
 
-export default function About({}: Props) {
+export default function About({pageInfo}: Props) {
     return (
         <motion.div
             initial={{
@@ -25,7 +29,7 @@ export default function About({}: Props) {
         >
             <h3 className="pageTitle">About</h3>
             <img
-                src="/about.jpg"
+                src={urlFor(pageInfo?.profilePic).url()}
                 className="-mb-20 h-56 w-56 flex-shrink-0 rounded-full object-cover md:mb-0 md:h-64 md:w-96 md:rounded-lg 2xl:h-[500px] 2xl:w-[600px]"
             />
             <div className="space-y-10 px-0 md:px-10">
@@ -34,12 +38,7 @@ export default function About({}: Props) {
                     background
                 </h4>
                 <p className="text-base">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet perferendis
-                    exercitationem quo sunt molestiae magnam vero impedit recusandae pariatur iste
-                    optio minima quas eius autem, animi assumenda velit? Quasi, beatae. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Eveniet perferendis exercitationem
-                    quo sunt molestiae magnam vero impedit recusandae pariatur iste optio minima
-                    quas eius autem, animi assumenda velit? Quasi, beatae.
+                    {pageInfo?.backgroundInformation}
                 </p>
             </div>
         </motion.div>

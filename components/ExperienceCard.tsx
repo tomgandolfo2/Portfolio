@@ -1,9 +1,13 @@
 import React from "react"
 import { motion } from "framer-motion"
+import { Experience } from "../typings"
+import { urlFor } from "../sanity"
 
-type Props = {}
+type Props = {
+    experience: Experience
+}
 
-export default function ExperienceCard({}: Props) {
+export default function ExperienceCard({ experience }: Props) {
     return (
         <article
             className="flex w-[500px] flex-shrink-0 cursor-pointer snap-center 
@@ -23,27 +27,35 @@ export default function ExperienceCard({}: Props) {
                 viewport={{
                     once: false,
                 }}
-                src="/profile.jpg"
+                src={urlFor(experience?.companyImage).url()}
                 className="h-32 w-32 rounded-full object-cover object-center xl:h-[200px] xl:w-[200px]"
             />
             <div className="px-0 md:px-10">
-                <h4 className="text-4xl font-light">CEO of ThomasCorp</h4>
-                <p className="mt-1 text-2xl font-bold">ThomasCorp Inc.</p>
+                <h4 className="text-4xl font-light">{experience?.jobTitle}</h4>
+                <p className="mt-1 text-2xl font-bold">{experience?.company}</p>
                 <div className="my-2 flex space-x-2">
-                    {/* Tech used */}
-                    <img src="/profile.jpg" className="h-10 w-10 rounded-full" />
-                    {/* Tech used */}
-                    <img src="/profile.jpg" className="h-10 w-10 rounded-full" />
-                    {/* Tech used */}
-                    <img src="/profile.jpg" className="h-10 w-10 rounded-full" />
+                    {experience.technologies.map((technology) => (
+                        <img 
+                        key={technology?._id}
+                        className="h-10 w-10 rounded-full"
+                        src={urlFor(technology?.image).url()}
+                        />
+                    ))
+
+                    }
                 </div>
-                <p className="py-5 uppercase text-gray-300">Started Job... - Ended Job...</p>
+                <p className="py-5 uppercase text-gray-300">
+                    {new Date(experience.dateStarted).toDateString()} -{" "}
+                    {experience.isCurrentlyWorkingHere
+                    ? "Present"
+                    : new Date(experience.dateEnded).toDateString()}
+                </p>
                 <ul className="ml-5 list-disc space-y-4 text-lg">
-                    <li>Summary points</li>
-                    <li>Summary points</li>
-                    <li>Summary points</li>
-                    <li>Summary points</li>
-                    <li>Summary points</li>
+                    {experience?.points.map((point, i) => (
+                        <li key={i}>
+                            {point}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </article>

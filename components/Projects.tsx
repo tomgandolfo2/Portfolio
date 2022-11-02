@@ -1,10 +1,13 @@
 import React from "react"
 import { motion } from "framer-motion"
+import { Project } from "../typings"
+import { urlFor } from "../sanity"
 
-type Props = {}
+type Props = {
+    projects: Project[]
+}
 
-export default function Projects({}: Props) {
-    const projects = [1, 2, 3, 4, 5]
+export default function Projects({projects}: Props) {
     return (
         <motion.div
             initial={{
@@ -46,20 +49,27 @@ export default function Projects({}: Props) {
                             viewport={{
                                 once: true,
                             }}
-                            src="https://seeklogo.com/images/N/next-js-logo-8FCFF51DD2-seeklogo.com.png"
+                            src={urlFor(project?.image).url()}
                         />
                         <div className="max-w-6xl space-y-10 px-0 md:px-10">
                             <h4 className="text-center text-4xl font-semibold">
                                 <span className="underline decoration-[#F7AB0A]/50">
                                     Case Study {i + 1} of {projects.length}:
                                 </span>{" "}
-                                Vault
+                                {project?.title}
                             </h4>
+                            <div className="flex items-center justify-center space-x-2">
+                                {project?.technologies.map((technology) => (
+                                    <img
+                                    className="h-10 w-10 rounded-full"
+                                    key={technology?._id}
+                                    src={urlFor(technology.image).url()}
+                                    alt=""
+                                    />
+                                ))}
+                            </div>
                             <p className="text-center text-lg md:text-left">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat
-                                porro tempora quaerat, ea facere aspernatur explicabo et beatae,
-                                quae, molestiae dolore omnis odio atque nobis earum? Eligendi quia
-                                iure quam.
+                                {project?.summary}
                             </p>
                         </div>
                     </div>
