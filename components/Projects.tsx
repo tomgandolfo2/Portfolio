@@ -28,7 +28,7 @@ export default function Projects({projects}: Props) {
             overflow-y-hidden overflow-x-scroll scrollbar-thin scrollbar-track-gray-400/20 
             scrollbar-thumb-[#F7AB0A]/80"
             >
-                {projects?.map((project) => (
+                {projects?.map((project, i) => (
                     <div
                         className="flex h-screen w-screen flex-shrink-0 snap-center flex-col items-center
                     justify-center space-y-5 p-20 md:p-44"
